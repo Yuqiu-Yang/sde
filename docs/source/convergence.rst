@@ -1,3 +1,3 @@
-Strong and Weak Convergence 
+Convergence 
 ==================================
 

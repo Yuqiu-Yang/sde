@@ -70,25 +70,25 @@ To quickly test if it has been installed:
 Tutorial
 ===================
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: Brownian Motions
 
    bm
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: Stochastic Integrals 
 
    integrals 
   
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: Stochastic Differential Equations 
 
    sde 
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: Strong and Weak Convergence  
 
    convergence
