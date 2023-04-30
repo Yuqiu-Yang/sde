@@ -34,7 +34,7 @@ def test_integrals(integral_type, expect_true):
         return w
     try:
         results = sde.integrate(fun=h, 
-                                integral_type="integral_type")
+                                integral_type=integral_type)
         if expect_true:
             assert True
         else:
