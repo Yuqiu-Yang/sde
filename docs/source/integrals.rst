@@ -66,7 +66,8 @@ The analytical solution is given by
     \int_{0}^{T}W(t)dW(t) = \dfrac{1}{2}W(T)^2
 
 .. tip:: 
-    Wondering how it's done? 
+    Wondering how it's done? Think about how you would 
+    impute the middle point of Brownian Motions positions.
 
 .. code-block:: python
 

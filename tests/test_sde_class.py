@@ -44,3 +44,32 @@ def test_integrals(integral_type, expect_true):
             assert True
         else:
             assert False 
+
+
+def test_em():
+    sde = sde_class(T=1, N=10000, M=100)
+    def mu_fun(x):
+        return 2 * x
+    def sigma_fun(x):
+        return x
+    X = sde.euler_maruyama(mu_fun=mu_fun,
+                            sigma_fun=sigma_fun,
+                            x0=1,
+                            R=2)
+    assert True
+
+
+def test_milstein():
+    sde = sde_class(T=1, N=10000, M=100)
+    def mu_fun(x):
+        return 2 * x
+    def sigma_fun(x):
+        return x
+    def d_sigma_fun(x):
+        return 1
+    X = sde.milstein(mu_fun=mu_fun,
+                    sigma_fun=sigma_fun,
+                    d_sigma_fun=d_sigma_fun,
+                    x0=1,
+                    R=2)
+    assert True

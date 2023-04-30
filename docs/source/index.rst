@@ -80,6 +80,18 @@ Tutorial
    :caption: Stochastic Integrals 
 
    integrals 
+  
+.. toctree::
+   :maxdepth: 1
+   :caption: Stochastic Differential Equations 
+
+   sde 
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Strong and Weak Convergence  
+
+   convergence
 
 .. toctree::
    :maxdepth: 2

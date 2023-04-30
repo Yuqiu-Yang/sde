@@ -120,12 +120,12 @@ class sde_class:
             raise NotImplementedError
         return integral_result
         
-    def eular_maruyama(self,
+    def euler_maruyama(self,
                        mu_fun: Callable,
                        sigma_fun: Callable,
                        x0: float=0,
                        R: int=1) -> np.ndarray:
-        """Eular Maruyama method 
+        """Euler Maruyama method 
 
         Parameters
         ----------
