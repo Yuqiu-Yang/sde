@@ -7,7 +7,7 @@
 
 | Package | Documentation | Code Coverage |
 | --- | --- | --- |
-| sde |  [![Documentation Status](https://readthedocs.org/projects/sde/badge/?version=latest)](https://sde.readthedocs.io/en/latest/?badge=latest) |  |
+| sde |  [![Documentation Status](https://readthedocs.org/projects/sde/badge/?version=latest)](https://sde.readthedocs.io/en/latest/?badge=latest) | [![codecov](https://codecov.io/gh/Yuqiu-Yang/sde/branch/main/graph/badge.svg?token=KW3cp0XJky)](https://codecov.io/gh/Yuqiu-Yang/sde) |
 
 So you say you are interested in stochastic differential equations? And you also subscribe to the idea of learning by example? Well, you are in luck!
 <b>sde</b> provides basic tools for simulating brownian motions which is the basic ingredients to lots of SDE models, performing different types of stochastic integrations, Eular-Maruyama methods and so much more (to come...). 
