@@ -9,7 +9,7 @@
 **sde**: a simple tool for numerical stochastic differential equations
 ===========================================================================
 
-**sde**provides basic tools for simulating brownian motions which is the basic 
+**sde** provides basic tools for simulating brownian motions which is the basic 
 ingredients to lots of SDE models, performing different types of stochastic integrations, 
 Eular-Maruyama methods and so much more (to come...). 
 
@@ -74,6 +74,12 @@ Tutorial
    :caption: Brownian Motions
 
    bm
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Stochastic Integrals 
+
+   integrals 
 
 .. toctree::
    :maxdepth: 2

@@ -22,4 +22,25 @@ def test_transform(T, N, M, W, expected):
     transformed_W = sde.transform_W(fun=u,
                                     W=W)
     assert transformed_W.shape == expected
-    
+
+@pytest.mark.parametrize("integral_type, expect_true", [
+    ("Ito", True),
+    ("Stratonovich", True),
+    ("Riemann", False)
+])
+def test_integrals(integral_type, expect_true):
+    sde = sde_class(T=1, N=1000, M=1000)
+    def h(t, w):
+        return w
+    try:
+        results = sde.integrate(fun=h, 
+                                integral_type="integral_type")
+        if expect_true:
+            assert True
+        else:
+            assert False  
+    except:
+        if not expect_true:
+            assert True
+        else:
+            assert False 

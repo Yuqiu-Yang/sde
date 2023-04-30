@@ -97,7 +97,7 @@ class sde_class:
         """
         if integral_type == "Stratonovich":
             # Compute mid points
-            W_array = np.zeros((self.W.shape[0], np.ceil(self.W.shape[1]/2)))
+            W_array = np.zeros((self.W.shape[0], self.W.shape[1]-1))
             for path in range(self.W.shape[0]):
                 ma = np.convolve(self.W[path,:], np.ones(2), "valid")/2
                 ma += np.random.randn(len(ma))*np.sqrt(self.dt)*0.5

@@ -74,7 +74,11 @@ each time point analytically: :math:`\exp(\dfrac{9t}{8})`.
     for path in range(5):
         plt.plot(sde.time, transformed_W[path,:],
                 label="Path "+str(path),
-                linewidth=0.5)
+                linewidth=0.5, alpha=0.7)
+
+    plt.plot(sde.time, np.mean(transformed_W, axis=0),
+            linewidth=3, c='magenta',
+            label="Average")
     plt.plot(sde.time, np.exp(9*sde.time/8),
             linewidth=3, c='cyan',
             label="Expectation")
@@ -88,3 +92,6 @@ You should get something similar to this:
 .. image:: ./images/bm1.png
     :width: 600
     :align: center
+
+As you can see, the computed average is pretty close to 
+the analytical solution.
