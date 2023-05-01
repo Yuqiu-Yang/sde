@@ -26,15 +26,15 @@ class PypiCommand(distutils.cmd.Command):
         except FileNotFoundError:
             pass
         
-        wheel_file = "sde-{}-py3-none-any.whl".format(VERSION)
-        tar_file = "sde-{}.tar.gz".format(VERSION)
+        wheel_file = "sdeIU-{}-py3-none-any.whl".format(VERSION)
+        tar_file = "sdeIU-{}.tar.gz".format(VERSION)
         
         os.system("{} setup.py sdist bdist_wheel".format(sys.executable))
         os.system("twine upload dist/{} dist/{}".format(wheel_file, tar_file))
 
 
 setup(
-    name="sde",
+    name="sdeIU",
     version=VERSION,
     description="A simple tool for numerical stochastic differential equations",
     author="Yuqiu Yang",

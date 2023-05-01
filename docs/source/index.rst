@@ -58,7 +58,7 @@ Installation
 
 .. code:: bash
    
-   pip install sde
+   pip install sdeIU
 
 To quickly test if it has been installed:
 

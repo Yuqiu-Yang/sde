@@ -34,5 +34,8 @@ pip install -r requirements.txt
 
 ## Installation 
 ```shell
-pip install sde
+pip install sdeIU
 ```
+
+
+
