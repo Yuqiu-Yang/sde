@@ -89,7 +89,7 @@ Tutorial
 
 .. toctree::
    :maxdepth: 2
-   :caption: Strong and Weak Convergence  
+   :caption: Convergence and Stability
 
    convergence
 

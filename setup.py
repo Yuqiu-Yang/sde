@@ -46,7 +46,9 @@ setup(
     install_requires=[
         'matplotlib==3.7.1',
         'numpy==1.24.2',
-        'tqdm==4.65.0'
+        'tqdm==4.65.0',
+        'pandas==2.0.0',
+        'seaborn==0.12.2'
     ],
     test_requires=[
         'pytest==7.1.2',
