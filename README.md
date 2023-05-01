@@ -20,6 +20,8 @@ The origin of this project is this wonderful introductory [paper](https://epubs.
 - numpy==1.22.4
 - tqdm==4.64.1
 - matplotlib==3.7.1
+- pandas==2.0.0
+- seaborn==0.12.2
 
 ## Enviroment Setup
 We highly recommend creating a virtual environment before proceeding to installing the package. For how to manage virtual
