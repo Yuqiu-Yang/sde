@@ -39,7 +39,7 @@ pip install sdeIU
 
 ## Tutorials
 We also included all the [jupyter notebooks :notebook_with_decorative_cover:](https://github.com/Yuqiu-Yang/sde/tree/main/notebooks). If you want, you can 
-regenerate all the examples we went through in [our documentation :page_with_curl:](https://sde.readthedocs.io/en/latest/) by running these notebooks.
+regenerate (of course not exactly due to the random nature of the problems) all the examples we went through in [our documentation :page_with_curl:](https://sde.readthedocs.io/en/latest/) by running these notebooks.
 - [Brownian Motions :bread:](https://github.com/Yuqiu-Yang/sde/blob/main/notebooks/bm.ipynb)
 - [Stochastic Integrals :egg:](https://github.com/Yuqiu-Yang/sde/blob/main/notebooks/integrals.ipynb)
 - [Stochastic Differential Equations :cake:](https://github.com/Yuqiu-Yang/sde/blob/main/notebooks/sde.ipynb)
