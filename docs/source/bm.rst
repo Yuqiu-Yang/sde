@@ -57,6 +57,13 @@ each time point analytically: :math:`\exp(\dfrac{9t}{8})`.
 .. tip:: 
     Wondering how? Just remember :math:`W(t)\sim N(0,t)`
 
+    .. math:: 
+
+        t + \dfrac{1}{2}W(t) \sim N(t, \dfrac{t}{4})\\
+        \exp(N(t, \dfrac{t}{4})) \sim \log N(t, \dfrac{t}{4})
+        
+
+
 .. code-block:: python
     
     # Initialize an sde_class object 

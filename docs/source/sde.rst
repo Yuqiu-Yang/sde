@@ -81,7 +81,14 @@ intuitive, has a suboptimal strong order of convergence. The
 Milstein's method improves upon this. However, this does  
 come with additional cost of computing the derivatives of the diffusion function. 
 
-Continuing the previous example, we can carry out the Milstein's method 
+It takes the form of 
+
+.. math:: 
+    X_j = X_{j-1} + \Delta tf(X_{j-1}) + g(X_{j-1})(W(\tau_j) - W(\tau_{j-1})) + \\
+    \dfrac{1}{2}g(X_{j-1})g'(X_{j-1})((W(\tau_j) - W(\tau_{j-1}))^2 - \Delta t)
+
+
+Continuing with the previous example, we can carry out the Milstein's method 
 as follows: 
 
 .. code-block:: python 

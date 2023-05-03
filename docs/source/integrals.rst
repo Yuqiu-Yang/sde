@@ -69,6 +69,16 @@ The analytical solution is given by
     Wondering how it's done? Think about how you would 
     impute the middle point of Brownian Motions positions.
 
+    Let :math:`W_1 = W(t_j), W_2 = W(\lambda t_{j+1} + (1-\lambda)t_j), W_3 = W(t_{j+1}), ~ \Delta = t_{j+1}-t_j` 
+
+    .. math:: 
+        \begin{align*}
+            p(W_2 | W_1, W_3) & \propto p(W_3|W_2)p(W_2|W_1)\\
+                              & = N(W_2, (1-\lambda)\Delta)N(W_1, \lambda \Delta)\\
+                              & \propto \exp[\dfrac{-1}{2\lambda (1-\lambda)\Delta} (W_2^2 - 2W_2(\lambda W_3 + (1-\lambda)W_1))]
+        \end{align*}
+        
+
 .. code-block:: python
 
     # Stratonovich integral 
