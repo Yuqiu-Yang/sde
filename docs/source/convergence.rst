@@ -181,6 +181,60 @@ EM method, and compare the absolute errors with the ground truth.
 
 Linear Stability
 ------------------------
+Stability mainly concerns with the ability of a method 
+to reproduce a certain qualitative feature of an SDE. 
+
+In this section, we will again use 
+
+.. math:: 
+    dX(t) = \lambda X(t)dt + \mu X(t)dW(t)
+
+And the feature we are interested in is :math:`\underset{t\to\infty}{\lim}X(t)=0`
+(Of course in some "probability" sense).
+
+There are metrics we will use 
+
+.. math:: 
+    \underset{t\to\infty}{\lim}E(X^2(t)) = 0\\
+    \underset{t\to\infty}{\lim}|X(t)| = 0 ~a.s
+
+As we know the analytic solution, we know the conditions we 
+need to impose on :math:`\lambda, \mu`.
+
+.. math:: 
+    \underset{t\to\infty}{\lim}E(X^2(t)) = 0 \Leftrightarrow 2\lambda + \mu^2 < 0\\ 
+    \underset{t\to\infty}{\lim}|X(t)| = 0 ~a.s \Leftrightarrow \lambda - \dfrac{1}{2}\mu^2 <0
+
+Given the region of :math:`\lambda, \mu`, we are interested in finding out 
+the time steps of the Eular-Maruyama that can reproduce these features. 
+
+Based on the EM method, we have for mean-square stability
+
+.. math:: 
+    X_{j} - X_{j-1} = X_{j-1}(\lambda dt + \mu dWt)\\
+    E(X_{j})^2 = E(X_{j-1})^2E(1+\lambda dt + \mu dWt)^2\\
+    E(X_{j})^2 = E(X_{j-1})^2E((1+\lambda dt)^2 + \mu^2 dt)
+
+This yields :math:`(1+\lambda dt)^2 + \mu^2 dt<1`
+
+For asymptotic stability,
+
+.. math:: 
+
+    |X_{j}| = |X_{0}|\prod|(1+\lambda dt + \mu dWt)|\\
+    \log X_{j} = \sum \log|(1+\lambda dt + \mu dWt)| = \sum \log|N(1+\lambda dt, \mu^2 dt)|\\
+
+We than normalize both sides with mean :math:`m` and variance :math:`s^2`,
+
+.. math::  
+    (\log X_{j}-nm)/\sqrt{n}s = (\sum \log|(1+\lambda dt + \mu dWt)| - nm)/\sqrt{n}s \to 0, a.s 
+
+Now if :math:`E\log|(1+\lambda dt + \mu dWt) < 0`, we have 
+
+.. math:: 
+    \underset{t\to\infty}{\lim\sup}[(\log X_{j}-nm)/\sqrt{n}s]/[2t\log\log t] = 1 \Rightarrow \underset{j\to\infty}{\lim}|X_j| = 0
+
+
 
 Mean-Square Stability
 ~~~~~~~~~~~~~~~~~~~~~~~~~~

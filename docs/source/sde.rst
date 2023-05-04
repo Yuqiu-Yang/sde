@@ -1,6 +1,6 @@
 Stochastic Differential Equations
 =====================================
-An SDE can be written as 
+An autonomous SDE can be written as 
 
 .. math:: 
     X(t) = X(0) + \int_{0}^{t}f(X(s))ds + \int_{0}^{t}g(X(s))dW(s)
@@ -15,9 +15,16 @@ to solve SDEs numerically.
 
 The Euler-Maruyama Method 
 ------------------------------
-Once we have the "differential" way of expressing an SDE, 
-the Eular-Maruyama method becomes intuitive. It simply takes 
-the form of 
+The Eular-Maruyama method is fairly intuitive. It approximates 
+the integrals via their left-most points. 
+
+.. math:: 
+    \begin{align*}
+        X_j &= X_{j-1} + \int_{t_{j-1}}^{t_j}f(X(s))ds + \int_{t_{j-1}}^{t_j}g(X(s))dW(s)\\
+            &\approx X_{j-1} + f(X(t_{j-1}))\int_{t_{j-1}}^{t_j}ds + g(X(t_{j-1}))\int_{t_{j-1}}^{t_j}dW(s)\\
+    \end{align*}
+
+In "differential" form, we have 
 
 .. math:: 
     X_j = X_{j-1} + f(X_{j-1})\Delta t + g(X_{j-1})(W(\tau_j) - W(\tau_{j-1}))
@@ -81,7 +88,37 @@ intuitive, has a suboptimal strong order of convergence. The
 Milstein's method improves upon this. However, this does  
 come with additional cost of computing the derivatives of the diffusion function. 
 
-It takes the form of 
+Instead of using the left-most points, we exploit Ito's formula. 
+
+.. math:: 
+    \begin{align*}
+        d(f(X_t)) &= (f'f + \dfrac{1}{2}f'' g^2)dt + (f'g)dW_t\\
+        d(g(X_t)) &= (g'f + \dfrac{1}{2}g'' g^2)dt + (g'g)dW_t\\  
+        X_{j} &= X_{j-1} + \int_{t_{j-1}}^{t_j}(f_{j-1} + \int_{t}^{s}(f'f + \dfrac{1}{2}f'' g^2)du + \int_{t}^{s}(f'g)dW_u)ds\\
+              &+ \int_{t_{j-1}}^{t_j}(g_{j-1} + \int_{t}^{s}(g'f + \dfrac{1}{2}g'' g^2)du + \int_{t}^{s}(g'g)dW_u)dW_s
+    \end{align*}
+
+Dropping terms higher than :math:`O(dt)`, we have 
+
+.. math:: 
+
+    X_{j} &= X_{j-1} + \int_{t_{j-1}}^{t_j}f_{j-1} ds\\
+              &+ \int_{t_{j-1}}^{t_j}(g_{j-1} + \int_{t}^{s}(g'g)dW_u)dW_s\\
+              &= X_{j-1} + f_{j-1}\Delta t\\
+              &+ g_{j-1}(W_{j} - W_{j-1}) + \int_{t_{j-1}}^{t_j}(\int_{t}^{s}(g'g)dW_u)dW_s
+
+We then apply the Eular-Maruyama on the last term,
+
+.. math:: 
+    \begin{align*}
+        \int_{t_{j-1}}^{t_j}(\int_{t}^{s}(g'g)dW_u)dW_s &\approx (g_{j-1}'g_{j-1})\int_{t_{j-1}}^{t_j}(\int_{t}^{s}dW_u)dW_s\\
+                                                        &= (g_{j-1}'g_{j-1})\int_{t_{j-1}}^{t_j}(W_s - W_t)dW_s\\
+                                                        &= (g_{j-1}'g_{j-1})(\int_{t_{j-1}}^{t_j}W_sdW_s - W_{j-1}(W_{j}-W_{j-1}))\\
+                                                        &= (g_{j-1}'g_{j-1})(\dfrac{1}{2}W_j^2 - \dfrac{1}{2}W_{j-1}^2 - \dfrac{1}{2}\Delta t - W_{j-1}(W_{j}-W_{j-1}))\\
+                                                        &= \dfrac{1}{2}(g_{j-1}'g_{j-1})((W_{j}-W_{j-1})^2 - \Delta t)
+    \end{align*}
+
+Therefore, it takes the form of 
 
 .. math:: 
     X_j = X_{j-1} + \Delta tf(X_{j-1}) + g(X_{j-1})(W(\tau_j) - W(\tau_{j-1})) + \\
